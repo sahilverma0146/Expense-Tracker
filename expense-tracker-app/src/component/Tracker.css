@@ -1,0 +1,86 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(154, 132, 206);
+}
+
+.container{
+    margin: auto;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: max-content;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2rem;
+    background-color: cornsilk;
+
+
+}
+
+.container h{
+    text-align: center;
+    padding-bottom: 2.4rem;
+}
+
+.Balance{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+h, p{
+    font-size: 2rem;
+}
+
+.Tracker-box{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    font-size:2rem ;
+    height:5rem;
+    width: 100%;
+    border: 2px solid cornsilk;
+    border-radius:  2rem;
+    background-color: rgb(255, 255, 255);
+
+}
+
+input , button{
+    height: 3rem;
+    margin-bottom: 1.4rem;
+    border: 1px solid rgb(206, 228, 184);
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.NewTransations{
+    margin-top: 2rem;
+    
+    display: flex;
+
+    flex-direction: column;
+    
+}
+button{
+    height: 3rem;
+    cursor: pointer;
+    color: rgb(218, 218, 218);
+    font-size: 1.4rem;
+    background-color: blueviolet;
+}
+
+.Income p{
+    color: rgb(5, 255, 26);
+}
+
+.Expense p{
+    color: rgb(255, 22, 5);
+}
