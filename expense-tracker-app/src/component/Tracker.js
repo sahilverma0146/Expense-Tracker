@@ -5,6 +5,7 @@ import NewTransations from "./NewTransations.js";
 function Tracker() {
   const [expense, setExpense] = useState([]);
   const [price, setPrice] = useState(0);
+  const [updatePrice , setUpdatePrice]=useState(price);
 
   // useEffect(() => {
   //   // Calculate the total price
@@ -15,26 +16,49 @@ function Tracker() {
   let amountInput = useRef(null);
 
   function add() {
-    let el = listInput.current.value;
+    const el = listInput.current.value;
     console.log(el);
 
-    let expense = amountInput.current.value;
-    console.log(expense);
+    const expenseInput = amountInput.current.value;
+    console.log(expenseInput);
 
     const newEl = {
       id: Date.now(),
       text: el,
-      expense: expense,
+      expense: expenseInput,
     };
     setExpense((pre) => [...pre, newEl]);
+
+
+    const number=newEl.expense
+    console.log("the set price vl is :",number);
+    setPrice(number);
+    console.log("new price is :",price)
+    // const newTotalPrice = price + number;
+    
+    setUpdatePrice(()=>updatePrice + newEl.expense);
+    console.log("update price :",updatePrice)
+
+
+
+
+
+    // setPrice(number);
+    // const pr=number;
+    // console.log(pr);
+    // const updatePrice=price + newEl.expense;
+    // console.log("updatepr :", updatePrice)
+    // setUpdatePrice(updatePrice)
     listInput.current.value = "";
     amountInput.current.value = "";
-    
-    
-      
 
-   // set price shows render the total price 
-    setPrice();
+    
+    
+    
+    
+
+   // set price shows render the total pr 
+    setPrice(()=>expenseInput);
 
 
   }
@@ -58,7 +82,7 @@ function Tracker() {
           </div>
           <div className="Expense">
             Expense
-            <p>{price}</p>
+            <p>{updatePrice}</p>
           </div>
         </div>
         <br />
