@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import "./Tracker.css";
-function History({text,expense}) {
+function History({dollar,text,expense}) {
     
   return (
     <>
