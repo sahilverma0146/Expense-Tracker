@@ -1,6 +1,6 @@
 // import { useRef } from "react";
 import History from "./History";
-function NewTransations({ expense ,listInput , amountInput, add}) {
+function NewTransations({  expense, listInput , amountInput, add}) {
   
 
   
@@ -27,9 +27,11 @@ function NewTransations({ expense ,listInput , amountInput, add}) {
 
       <History></History>
       {expense.map((items)=>{
-        return(<History
+        return(
+        <History
            text={items.text}
            expense={items.expense}
+          
            
           ></History>)
       }
