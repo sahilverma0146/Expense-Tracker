@@ -84,3 +84,13 @@ button{
 .Expense p{
     color: rgb(255, 22, 5);
 }
+.history{
+    padding-left: 1rem;
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+}
+
