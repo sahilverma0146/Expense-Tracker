@@ -1,3 +1,5 @@
+
+
 import "./Tracker.css";
 import { useState, useRef } from "react";
 import NewTransations from "./NewTransations.js";
@@ -30,14 +32,20 @@ function Tracker() {
     setExpense((pre) => [...pre, newEl]);
 
 
-    const number=newEl.expense
-    console.log("the set price vl is :",number);
+    const number=newEl.expense;
     setPrice(number);
-    console.log("new price is :",price)
-    // const newTotalPrice = price + number;
+    console.log("the set price vl is :",number); // input value
     
-    setUpdatePrice(()=>updatePrice + newEl.expense);
-    console.log("update price :",updatePrice)
+    console.log("new price is :",price) 
+    // const newTotalPrice = price + number;
+    // const parseInt(number)
+    
+    setUpdatePrice(()=> +number + +price)
+    
+
+    
+    // setUpdatePrice(()=> price+expenseInput);
+    // console.log("update price :",updatePrice)
 
 
 
@@ -51,14 +59,15 @@ function Tracker() {
     // setUpdatePrice(updatePrice)
     listInput.current.value = "";
     amountInput.current.value = "";
-
-    
-    
-    
+    // setPrice(() => expenseInput);
     
 
-   // set price shows render the total pr 
-    setPrice(()=>expenseInput);
+    
+    
+    
+    
+
+   
 
 
   }
@@ -71,7 +80,7 @@ function Tracker() {
         <h> EXPENSE TRACKER</h>
         <br />
         <div className="Balance">
-          <h> Your Balance :$450</h>
+          <h> Your Balance :{updatePrice}</h>
         </div>
 
         <br></br>
