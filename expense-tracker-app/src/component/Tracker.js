@@ -1,5 +1,3 @@
-
-
 import "./Tracker.css";
 import { useState, useRef } from "react";
 import NewTransations from "./NewTransations.js";
@@ -7,7 +5,7 @@ import NewTransations from "./NewTransations.js";
 function Tracker() {
   const [expense, setExpense] = useState([]);
   const [price, setPrice] = useState(0);
-  const [updatePrice , setUpdatePrice]=useState(price);
+  const [updatePrice, setUpdatePrice] = useState(price);
 
   // useEffect(() => {
   //   // Calculate the total price
@@ -28,51 +26,20 @@ function Tracker() {
       id: Date.now(),
       text: el,
       expense: expenseInput,
+     
     };
     setExpense((pre) => [...pre, newEl]);
 
-
-    const number=newEl.expense;
-    setPrice(number);
-    console.log("the set price vl is :",number); // input value
-    
-    console.log("new price is :",price) 
-    // const newTotalPrice = price + number;
-    // const parseInt(number)
-    
-    setUpdatePrice(()=> +number + +price)
-    
+    setPrice((pre)=>[+pre + +newEl.expense]);
+    console.log("price :", price);
 
     
-    // setUpdatePrice(()=> price+expenseInput);
-    // console.log("update price :",updatePrice)
+    
+    setUpdatePrice(()=> +price + +newEl.expense);
 
-
-
-
-
-    // setPrice(number);
-    // const pr=number;
-    // console.log(pr);
-    // const updatePrice=price + newEl.expense;
-    // console.log("updatepr :", updatePrice)
-    // setUpdatePrice(updatePrice)
     listInput.current.value = "";
     amountInput.current.value = "";
-    // setPrice(() => expenseInput);
-    
-
-    
-    
-    
-    
-
-   
-
-
   }
- 
-  
 
   return (
     <>
@@ -80,18 +47,15 @@ function Tracker() {
         <h> EXPENSE TRACKER</h>
         <br />
         <div className="Balance">
-          <h> Your Balance :{updatePrice}</h>
+          <h> Your Balance :$500</h>
         </div>
 
         <br></br>
         <div className="Tracker-box">
-          <div className="Income">
-            Income
-            <p>{price}</p>
-          </div>
+          
           <div className="Expense">
             Expense
-            <p>{updatePrice}</p>
+            <p>${updatePrice}</p>
           </div>
         </div>
         <br />
@@ -102,11 +66,11 @@ function Tracker() {
           add={add}
           expense={expense}
           setExpense={setExpense}
+          
         ></NewTransations>
       </div>
     </>
   );
 }
-
 
 export default Tracker;
