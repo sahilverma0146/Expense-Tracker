@@ -1,11 +1,16 @@
-function History(){
-    return(
-        <>
-        <div>
-            <h> History</h>
-        </div>
-        </>
-    )
+// import { useState } from "react";
+import "./Tracker.css";
+function History({text,expense}) {
+    
+  return (
+    <>
+      
+      <div className="history">
+        <h> {text} </h>
+        <h>{expense}</h>
+      </div>
+    </>
+  );
 }
 
 export default History;
