@@ -3,14 +3,14 @@ import { useState, useRef } from "react";
 import NewTransations from "./NewTransations.js";
 
 function Tracker() {
+
+
+
   const [expense, setExpense] = useState([]);
   const [price, setPrice] = useState(0);
   const [updatePrice, setUpdatePrice] = useState(price);
 
-  // useEffect(() => {
-  //   // Calculate the total price
-
-  // }, [expense]);
+  
 
   let listInput = useRef(null);
   let amountInput = useRef(null);
@@ -28,7 +28,7 @@ function Tracker() {
       expense: expenseInput,
      
     };
-    setExpense((pre) => [...pre, newEl]);
+    setExpense((prevExpenses)=>[...prevExpenses , newEl])
 
     setPrice((pre)=>[+pre + +newEl.expense]);
     console.log("price :", price);
@@ -66,7 +66,6 @@ function Tracker() {
           add={add}
           expense={expense}
           setExpense={setExpense}
-          
         ></NewTransations>
       </div>
     </>
