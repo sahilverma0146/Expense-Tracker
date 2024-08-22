@@ -5,7 +5,6 @@ import NewTransations from "./NewTransations.js";
 function Tracker() {
 
 
-
   const [expense, setExpense] = useState([]);
   const [price, setPrice] = useState(0);
   const [updatePrice, setUpdatePrice] = useState(price);
@@ -41,6 +40,21 @@ function Tracker() {
     amountInput.current.value = "";
   }
 
+  function deleteButton(id){
+    console.log(" the id is ",id);
+    console.log("delete button was clicked");
+    
+    setExpense(expense.filter(items=>items.id!==id))
+
+  }
+
+  function editButton(id){
+    console.log(" the edit button id is :",id);
+    console.log("editbutton ws clicked");
+    
+
+  }
+
   return (
     <>
       <div className="container">
@@ -61,11 +75,16 @@ function Tracker() {
         <br />
 
         <NewTransations
+
           listInput={listInput}
+          // id={id}
           amountInput={amountInput}
           add={add}
+          // id={id}
           expense={expense}
           setExpense={setExpense}
+          deleteButton={deleteButton}
+          editButton={editButton}
         ></NewTransations>
       </div>
     </>
