@@ -1,6 +1,6 @@
 // import { useRef } from "react";
 import History from "./History";
-function NewTransations({  expense, listInput , amountInput, add}) {
+function NewTransations({ deleteButton,expense, listInput , amountInput, add , editButton}) {
   
 
   
@@ -29,8 +29,12 @@ function NewTransations({  expense, listInput , amountInput, add}) {
       {expense.map((items)=>{
         return(
         <History
+           id={items.id}
            text={items.text}
            expense={items.expense}
+           deleteButton={deleteButton}
+           editButton={editButton}
+
           
            
           ></History>)
