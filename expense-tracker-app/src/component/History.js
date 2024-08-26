@@ -5,7 +5,6 @@ function History({ deleteButton, text, expense, id, editButton }) {
     <>
       <div className="history">
         <button className="editButton" onClick={() => editButton(id)}>
-          {" "}
           Edit
         </button>
 
@@ -13,7 +12,6 @@ function History({ deleteButton, text, expense, id, editButton }) {
         <h>{expense}</h>
 
         <button className="deleteButton" onClick={() => deleteButton(id)}>
-          {" "}
           X
         </button>
       </div>
