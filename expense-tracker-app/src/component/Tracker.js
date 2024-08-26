@@ -3,13 +3,11 @@ import { useState, useRef } from "react";
 import NewTransations from "./NewTransations.js";
 
 function Tracker() {
-
-
   const [expense, setExpense] = useState([]);
   const [price, setPrice] = useState(0);
   const [updatePrice, setUpdatePrice] = useState(price);
 
-  
+  const [updateTask, setUpdateTask] = useState(null);
 
   let listInput = useRef(null);
   let amountInput = useRef(null);
@@ -25,34 +23,37 @@ function Tracker() {
       id: Date.now(),
       text: el,
       expense: expenseInput,
-     
     };
-    setExpense((prevExpenses)=>[...prevExpenses , newEl])
+    setExpense((prevExpenses) => [...prevExpenses, newEl]);
 
-    setPrice((pre)=>[+pre + +newEl.expense]);
+    setPrice((pre) => [+pre + +newEl.expense]);
     console.log("price :", price);
 
-    
-    
-    setUpdatePrice(()=> +price + +newEl.expense);
+    setUpdatePrice(() => +price + +newEl.expense);
 
     listInput.current.value = "";
     amountInput.current.value = "";
   }
 
-  function deleteButton(id){
-    console.log(" the id is ",id);
+  function deleteButton(id) {
+    console.log(" the id is ", id);
     console.log("delete button was clicked");
-    
-    setExpense(expense.filter(items=>items.id!==id))
 
+    setExpense(expense.filter((items) => items.id !== id));
   }
 
-  function editButton(id){
-    console.log(" the edit button id is :",id);
-    console.log("editbutton ws clicked");
-    
+  function handleChange(){
+    console.log("chnge done")
+  }
 
+  
+
+  function editButton(id) {
+    console.log(" the edit button id is :", id);
+    console.log("editbutton ws clicked");
+    const getTask = expense.filter((el) => id === el.id);
+  
+    
   }
 
   return (
@@ -66,7 +67,6 @@ function Tracker() {
 
         <br></br>
         <div className="Tracker-box">
-          
           <div className="Expense">
             Expense
             <p>${updatePrice}</p>
@@ -75,7 +75,6 @@ function Tracker() {
         <br />
 
         <NewTransations
-
           listInput={listInput}
           // id={id}
           amountInput={amountInput}
@@ -85,6 +84,7 @@ function Tracker() {
           setExpense={setExpense}
           deleteButton={deleteButton}
           editButton={editButton}
+          handleChange={handleChange}
         ></NewTransations>
       </div>
     </>
