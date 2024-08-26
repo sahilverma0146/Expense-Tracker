@@ -6,13 +6,15 @@ function NewTransations({
   listInput,
   amountInput,
   add,
+  update,
   editButton,
-  handleChange
+  handleChange,
+  toogle,
 }) {
   return (
     <>
       <div className="NewTransations">
-        <h> Add NewTransations</h>
+        <h> Add New Transations</h>
         <br></br>
         <label>Text</label>
         <input
@@ -31,8 +33,15 @@ function NewTransations({
           onChange={handleChange}
         ></input>
 
-        <button onClick={add}> Add Transation</button>
+        <div>
+        {toogle ? (
+          <i class="fa-solid fa-file-pen" onClick={update}></i>
+        ) : (
+          <i class="fa-solid fa-plus" onClick={add}></i>
+        )}
+        </div>
       </div>
+
       <h> History</h>
 
       <History></History>
