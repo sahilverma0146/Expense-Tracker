@@ -4,6 +4,7 @@ function History({ deleteButton, text, expense, id, editButton }) {
   return (
     <>
       <div className="history">
+       
         <button className="editButton" onClick={() => editButton(id)}>
           Edit
         </button>
